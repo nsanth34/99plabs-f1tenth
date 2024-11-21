@@ -9,7 +9,9 @@ Before diving into the navigation setup, it's important to ensure that your vehi
     
 3. **Vehicle Transformation Tree:** The vehicle's transformation tree (tf tree) should be correctly set up to ensure proper coordinate transformations between the different parts of the robot.
    
-![[transformations.jpg]]
+![transformations.jpg](../../assets/transformations.jpg)
+
+
 #### Localization and Mapping
 
 For a vehicle to navigate autonomously, it needs to know where it is within a given environment. This is where localization and mapping come into play.
@@ -47,7 +49,7 @@ Here’s how you can use it:
 - **Launch Parameters:**
     - The launch file can be customized using several parameters:
         - `slam`: Set this to `True` if you want to use SLAM; otherwise, set it to `False`.
-        - `use_amcl`: Set this to `True` if you are using a pre-existing map with AMCL. If set to `False` , the vehicle will use slam_toolbox's localization node to localize the vehilce.
+        - `use_amcl`: Set this to `True` if you are using a pre-existing map with AMCL. If set to `False` , the vehicle will use slam_toolbox's localization node to localize the vehicle.
         - `use_composition`: This parameter allows you to run multiple nodes in a single process to improve efficiency. Set this to `True` if you wish to use dynamic composition and `False` if not.
         - `params_file`: Specify the path to your configuration file (YAML format) that includes parameters for the navigation stack.
         - `map`: Provide the path to the map file (if not using SLAM). The path should refer to a yaml file with the correct corresponding pgm file.
@@ -71,4 +73,4 @@ https://github.com/ai-winter/ros_motion_planning?tab=readme-ov-file
 
 
 Blog Post:
-https://medium.com/99p-labs/project-somethings-creating-a-cyber-physical-environment-for-the-future-of-mobility-979a1b9c4e55
+https://medium.com/99p-labs/project-somethings-creating-a-cyber-physical-environment-for-the-future-of-mobility-979a1b9c4e55#23f1

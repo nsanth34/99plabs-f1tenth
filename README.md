@@ -1,8 +1,8 @@
-# SOMEThings Project Overview
-The SOMEThings (**S**imulation **O**f **M**obility **E**cosystems & Internet of **T**hings) project was created with the intent of easing the process of building, testing, and deploying software in the real world. We wanted to create a cyber-physical smart ecosystem proving ground at [99P labs](https://developer.99plabs.io/home/) that would allow us and other teams to use it as a research platform. For a much more detailed look at the project, take a look at our [blog](https://medium.com/99p-labs/project-somethings-creating-a-cyber-physical-environment-for-the-future-of-mobility-979a1b9c4e55#23f1).
+# 99PLabs-F1Tenth Project Overview
+The project was created with the intent of easing the process of building, testing, and deploying software in the real world. We wanted to create a cyber-physical smart ecosystem proving ground at [99P labs](https://www.99plabs.com/) that would allow us and other teams to use it as a research platform. For a much more detailed look at the project, take a look at our [blog](https://medium.com/99p-labs/project-somethings-creating-a-cyber-physical-environment-for-the-future-of-mobility-979a1b9c4e55).
 
 # Prerequisites
-Everything in this repository assumes that you have followed the [F1TENTH Build documentation](https://f1tenth.readthedocs.io/en/stable/index.html) and have a car with all of the sensors configured and working properly. Aditionally, you should have Docker and docker compose installed on the car.
+Everything in this repository assumes that you have followed the [F1TENTH Build documentation](https://f1tenth.readthedocs.io/en/stable/index.html) and have a car with all of the sensors configured and working properly. Additionally, you should have Docker and docker compose installed on the car.
 
 # The Car
 ![image of an f1tenth vehicle](assets/f1_car.png)
@@ -15,7 +15,7 @@ We decided to use the [F1TENTH](https://f1tenth.org/) vehicle as our car and dri
 * Ultrasonic
 * Ultrawideband (UWB)
 
-More detailed documentation on some of the sensors can be found in the [extra_sensor_documentation](/extra_sensor_documentation/) directory.
+More detailed documentation on some of the sensors can be found in the [extra_sensor_documentation](./extra_sensor_documentation/) directory.
 
 # Getting Started - Physical Car
 [![Driving Test](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DhpUR0EYhCzw)](https://www.youtube.com/watch?v=hpUR0EYhCzw)
@@ -28,7 +28,7 @@ More detailed documentation on some of the sensors can be found in the [extra_se
         * `task_commander`
     * Every container includes a `ros_entrypoint.sh` file in the `/scripts` directory, which will do all of the sourcing and launch the relevant launch file(s).
         * If at any point you'd like to have the container start without automatically launching anything, you can replace the launch line with `sleep 99999999999999`.
-    * You can visualize everything hapenning with the car using [RViz](https://github.com/ros2/rviz)
+    * You can visualize everything happening with the car using [RViz](https://github.com/ros2/rviz)
         * In our case, we simply navigate to `http://{car's_ip_address}:8080/`.
         * Once there, open `Terminator` and type in `rviz2`. This will launch a basic RViz window, without any of our predefined views.
         * To add a predefined view, run `ctrl + o` and select `Ubuntu/Documents/nav2_single_view_updated.rviz`.
@@ -51,15 +51,11 @@ More detailed documentation on some of the sensors can be found in the [extra_se
         * Make sure you are pressing down the deadman switch (Right Bumper) otherwise the car won't move.
 
 # Getting Started - Simulation
-Detailed instructions are located in the [99P-Gym-Simulator repo](https://gitea-de.rke.az.platform.kotomatic.io/nsanthanam/99P-gym-simulator).
+Detailed instructions are located in the [99PLabs F1Tenth Simulator repo](https://github.com/honda-research-institute/99plabs-f1tenth-sim).
 
 # Containers Overview
-![pods overview diagram](<assets/pods overview diagram.png>)
 
 The car's functionality is broken up into a number of containers, with each container being responsible for a single general function of the car. These containers can all be ran, stopped, deleted, added, etc. independently of all of the other containers. This means that we can easily turn off any number of containers if we want to run a specific test and then just as easily turn them back on without every turning off the car.
 
-# Deployment Architecture
-The SOMEThings project utilizes containerization through Kubernetes, enabling application deployment and scalability using node clusters. In addition to this, all software updates are done through the [OTA process](https://medium.com/99p-labs/somethings-29a61ba50fd3). The combition of these two deployment architectures enables us to make quick and highly modular changes to the car's functionality, without having to restart the car for the changes to take effect.
-
 # License
-The SOMEThings Project is released under the [MIT License](https://opensource.org/license/MIT).
+The 99PLabs-F1Tenth Project is released under this [License](LICENSE.pdf).
