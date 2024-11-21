@@ -1,0 +1,49 @@
+services:
+  nav:
+    platform: linux/arm64
+    build:
+      context: ./src/nav
+      dockerfile: Dockerfile
+    container_name: nav
+    hostname: nav
+    command: tail -f /dev/null
+    networks:
+      - car
+
+  task_commander:
+    platform: linux/arm64
+    build:
+      context: ./src/task_commander
+      dockerfile: Dockerfile
+    container_name: task_commander
+    hostname: task_commander
+    command: tail -f /dev/null
+    networks:
+      - car
+
+  base:
+    platform: linux/arm64
+    build: 
+      context: ./src/base
+      dockerfile: Dockerfile
+    container_name: base
+    hostname: base
+    networks:
+      - car
+    volumes:
+      - /dev/sensors/vesc:/dev/sensors/vesc
+
+  novnc:
+    image: theasp/novnc:latest
+    container_name: novnc
+    hostname: novnc
+    environment:
+      - DISPLAY_WIDTH=1728
+      - DISPLAY_HEIGHT=972
+    ports:
+      - "8080:8080"
+    networks:
+      - car
+  
+networks:
+  car:
