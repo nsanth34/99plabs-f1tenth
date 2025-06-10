@@ -35,7 +35,7 @@ You can change the button that is used as the deadman switch by editing the `dea
 
 ## vesc_driver_node
 ***Responsibility:*** Directly interfaces with the VESC motor controller. It sends motor and steering commands to the VESC and receives feedback such as speed, current, and telemetry data.
-***Interaction:*** Interacts with the VESC hardware, sending commands from the `ackermann_to_vesc_nod`e to control the vehicle's motor and steering. Additionally, it gathers telemetry from the VESC, which is passed to the `vesc_to_odom_node` for further processing.
+***Interaction:*** Interacts with the VESC hardware, sending commands from the `ackermann_to_vesc_node` to control the vehicle's motor and steering. Additionally, it gathers telemetry from the VESC, which is passed to the `vesc_to_odom_node` for further processing.
 
 ## vesc_to_odom_node
 ***Responsibility:*** Converts telemetry data from the VESC (wheel speeds, steering angle) into odometry information that can be used by other ROS nodes for localization and navigation.
