@@ -21,7 +21,7 @@ More detailed documentation on some of the sensors can be found in the [extra_se
 [![Driving Test](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DhpUR0EYhCzw)](https://www.youtube.com/watch?v=hpUR0EYhCzw)
 
 1. **Turn on the car and build the images using `docker compose`**
-    * Run `docker compopse up -d` from the [f1-docker](.) directory.
+    * Run `docker compose up -d` from the [f1-docker](.) directory.
     * The [docker compose](docker-compose.yml) will build three images:
         * `nav`
         * `base`
@@ -32,7 +32,7 @@ More detailed documentation on some of the sensors can be found in the [extra_se
         * In our case, we simply navigate to `http://{car's_ip_address}:8080/`.
         * Once there, open `Terminator` and type in `rviz2`. This will launch a basic RViz window, without any of our predefined views.
         * To add a predefined view, run `ctrl + o` and select `Ubuntu/Documents/nav2_single_view_updated.rviz`.
-2. **Go into the `nav` container to be able start executing commands**
+2. **Go into the `nav` container to start executing commands**
     * You can get into any container by running *`docker exec -it {container_name} bash`*.
 3. **Launch the nav2 stack by running *`ros2 launch car_navigation bringup_launch.py`* while still inside of the `nav` container.**
     * NOTE: To do this, you will first need to replace the launch line in the `ros_entrypoint.sh` file with `sleep 99999999999999` so that `bringup_launch.py` doesn't get automatically launched when the container boots up and you can instead manually launch it when you're ready and with whatever arguments you want.
@@ -55,7 +55,7 @@ Detailed instructions are located in the [99PLabs F1Tenth Simulator repo](https:
 
 # Containers Overview
 
-The car's functionality is broken up into a number of containers, with each container being responsible for a single general function of the car. These containers can all be ran, stopped, deleted, added, etc. independently of all of the other containers. This means that we can easily turn off any number of containers if we want to run a specific test and then just as easily turn them back on without every turning off the car.
+The car's functionality is broken up into a number of containers, with each container being responsible for a single general function of the car. These containers can all be ran, stopped, deleted, added, etc. independently of all of the other containers. This means that we can easily turn off any number of containers if we want to run a specific test and then just as easily turn them back on without ever turning off the car.
 
 # License
 The 99PLabs-F1Tenth Project is released under this [License](LICENSE.pdf).
